@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  teamcity-agent:
+    image: khiraev/teamcity-agent:v0.1
+    build: .
+    depends_on:
+      - teamcity-server
+    environment:
+      - SERVER_URL=teamcity-server:8111
+      - AGENT_NAME=android-agent
+  teamcity-server:
+    image: jetbrains/teamcity-server
+    ports:
+      - 8111:8111
