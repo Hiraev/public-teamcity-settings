@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 
@@ -30,23 +31,49 @@ project {
     description = "Contains all other projects"
 
     vcsRoot(HttpsGithubComHiraevPublicTeamcitySettingsGit)
-
-    features {
-        buildReportTab {
-            id = "PROJECT_EXT_1"
-            title = "Code Coverage"
-            startPage = "coverage.zip!index.html"
-        }
-    }
-
     cleanup {
         baseRule {
             preventDependencyCleanup = false
         }
     }
+
+    subProject {
+        name = "TheGuardianNews App"
+        vcsRoot(TheGuardianNewsVcs)
+
+
+        buildType {
+            name = "Just a Testing Build"
+
+
+            steps {
+                gradle {
+                    name = "Clean"
+                    buildFile = "build.gradle.kts"
+                    useGradleWrapper = true
+
+                    tasks = "app:clean"
+                    executionMode = BuildStep.ExecutionMode.ALWAYS
+                }
+                gradle {
+                    name = "Build"
+                    buildFile = "build.gradle.kts"
+                    useGradleWrapper = true
+
+                    tasks = "app:build"
+                    executionMode = BuildStep.ExecutionMode.ALWAYS
+                }
+            }
+        }
+    }
 }
 
 object HttpsGithubComHiraevPublicTeamcitySettingsGit : GitVcsRoot({
-    name = "https://github.com/Hiraev/public-teamcity-settings.git"
+    name = "TeamCity Settings"
     url = "https://github.com/Hiraev/public-teamcity-settings.git"
+})
+
+object TheGuardianNewsVcs : GitVcsRoot({
+    name = "TheGuardianNews"
+    url = "https://github.com/Hiraev/TheGuardianNews.git"
 })
