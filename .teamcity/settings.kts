@@ -55,12 +55,14 @@ project {
 
             steps {
                 gradle {
+                    buildFile = "build.gradle.kts"
                     enabled = true
                     name = "DoesnExistBuild"
-                    buildFile = "build.gradle.kts"
 
+                    id = "23df2280-1679-4e9f-af4d-2d5b16f3941c"
                     tasks = "doesntExistTask"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
+                    gradleParams = "--stacktrace --no-build-cache"
 
                     conditions {
                         doesNotExist("skip_clean")
