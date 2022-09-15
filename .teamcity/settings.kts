@@ -68,7 +68,7 @@ project {
                     gradleParams = "--stacktrace --no-build-cache"
 
                     conditions {
-                        doesNotExist("skip_clean")
+                        doesNotExist("skip_tanker_checks")
                     }
                 }
                 gradle {
