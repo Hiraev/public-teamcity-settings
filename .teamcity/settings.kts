@@ -41,6 +41,7 @@ project {
         id("TheGuardianNews_App")
         name = "TheGuardianNews App"
 
+        vcsRoot(TheGuardianNewsVcs)
 
         buildType {
             vcs {
