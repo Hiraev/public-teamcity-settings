@@ -44,8 +44,11 @@ project {
 
         vcsRoot(TheGuardianNewsVcs)
 
+        params {
+            text("env.AAA", "fds")
+            param("env.CCCCC", "true")
+        }
         buildType {
-            cleanup {  }
             vcs {
                 root(TheGuardianNewsVcs)
             }
