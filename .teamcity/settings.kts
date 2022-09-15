@@ -59,6 +59,10 @@ project {
 
                     tasks = "app:clean"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
+
+                    conditions {
+                        doesNotExist("skip_clean")
+                    }
                 }
                 gradle {
                     name = "Build"
