@@ -40,10 +40,12 @@ project {
     subProject {
         id("TheGuardianNews_App")
         name = "TheGuardianNews App"
-        vcsRoot(TheGuardianNewsVcs)
 
 
         buildType {
+            vcs {
+                root(TheGuardianNewsVcs)
+            }
             id("MyBuild")
             name = "Just a Testing Build"
 
@@ -54,8 +56,6 @@ project {
                     buildFile = "build.gradle.kts"
                     useGradleWrapper = true
 
-                    gradleWrapperPath = "."
-
                     tasks = "app:clean"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
                 }
@@ -63,8 +63,6 @@ project {
                     name = "Build"
                     buildFile = "build.gradle.kts"
                     useGradleWrapper = true
-
-                    gradleWrapperPath = "."
 
                     tasks = "app:build"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
