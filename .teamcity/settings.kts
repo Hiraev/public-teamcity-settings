@@ -38,11 +38,13 @@ project {
     }
 
     subProject {
+        id("TheGuardianNews_App")
         name = "TheGuardianNews App"
         vcsRoot(TheGuardianNewsVcs)
 
 
         buildType {
+            id("MyBuild")
             name = "Just a Testing Build"
 
 
