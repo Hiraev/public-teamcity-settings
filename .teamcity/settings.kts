@@ -55,7 +55,7 @@ project {
 
             steps {
                 gradle {
-                    // enabled = true
+                    enabled = true
                     name = "Clean"
                     // buildFile = "build.gradle.kts"
                     // useGradleWrapper = true
