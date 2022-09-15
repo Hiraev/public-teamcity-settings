@@ -56,11 +56,11 @@ project {
             steps {
                 gradle {
                     enabled = true
-                    name = "Clean"
+                    name = "DoesnExistBuild"
                     buildFile = "build.gradle.kts"
 
                     tasks = "doesntExistTask"
-                    executionMode = BuildStep.ExecutionMode.RUN_ON_SUCCESS
+                    executionMode = BuildStep.ExecutionMode.ALWAYS
 
                     conditions {
                         doesNotExist("skip_clean")
