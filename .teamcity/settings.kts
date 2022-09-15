@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 
@@ -44,6 +45,7 @@ project {
         vcsRoot(TheGuardianNewsVcs)
 
         buildType {
+            cleanup {  }
             vcs {
                 root(TheGuardianNewsVcs)
             }
@@ -52,6 +54,10 @@ project {
 
 
             steps {
+                script {
+                    name = "Kill Gradle processes"
+                    scriptContent = "pkill -f '.*GradleDaemon.*'"
+                }
                 gradle {
                     // enabled = true
                     name = "Clean"
@@ -59,7 +65,7 @@ project {
                     // useGradleWrapper = true
 
                     tasks = "app:clean"
-                    executionMode = BuildStep.ExecutionMode.ALWAYS
+                    executionMode = BuildStep.ExecutionMode.RUN_ON_SUCCESS
 
                     conditions {
                         doesNotExist("skip_clean")
@@ -71,7 +77,7 @@ project {
                     // useGradleWrapper = true
 
                     tasks = "app:build"
-                    executionMode = BuildStep.ExecutionMode.ALWAYS
+                    executionMode = BuildStep.ExecutionMode.RUN_ON_SUCCESS
                 }
             }
         }
