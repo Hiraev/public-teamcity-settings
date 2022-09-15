@@ -57,10 +57,9 @@ project {
                 gradle {
                     enabled = true
                     name = "Clean"
-                    // buildFile = "build.gradle.kts"
-                    // useGradleWrapper = true
+                    buildFile = "build.gradle.kts"
 
-                    tasks = "app:clean"
+                    tasks = "doesntExistTask"
                     executionMode = BuildStep.ExecutionMode.RUN_ON_SUCCESS
 
                     conditions {
