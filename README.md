@@ -62,4 +62,5 @@ ssh-keygen -f teamcity_rsa -N passphrase -t rsa -m PEM
 9. В github добавляем ssh ключ скопированный из teamcity_rsa.pub
 10. Создаем пустой проект на github и копируем ссылку на него в формате https://github.com/Hiraev/public-teamcity-settings.git
 11. Открывает в Teamcity Administration -> Projects -> Root Project -> VCS Roots -> Create VCS Roots
-В repository url указываем скопированный на шаге 10 url. (В проекте должная быть хотя бы одна ветка). При подключении будет использоваться ключ, который мы добавили на шаге 7-9.
+В repository url указываем скопированный на шаге 10 url и жмем Create. (В проекте должная быть хотя бы одна ветка). При подключении будет использоваться ключ, который мы добавили на шаге 7-9.
+12. Открываем Administration -> Projects -> Root Project -> Versioned Settings. Выбираем Synchronization enabled. В списке выбираем VCS, который добавили в пункте 11. Settings Format выбираем "Kotlin". Галочка "Generate Portable DSL Scripts" включена. Жмем "Apply".
