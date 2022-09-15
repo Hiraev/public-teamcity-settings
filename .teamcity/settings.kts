@@ -54,7 +54,7 @@ project {
                     buildFile = "build.gradle.kts"
                     useGradleWrapper = true
 
-                    gradleWrapperPath = "gradle/wrapper"
+                    gradleWrapperPath = "."
 
                     tasks = "app:clean"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
@@ -64,7 +64,7 @@ project {
                     buildFile = "build.gradle.kts"
                     useGradleWrapper = true
 
-                    gradleWrapperPath = "gradle/wrapper"
+                    gradleWrapperPath = "."
 
                     tasks = "app:build"
                     executionMode = BuildStep.ExecutionMode.ALWAYS
