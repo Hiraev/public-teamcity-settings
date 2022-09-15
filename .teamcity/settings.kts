@@ -60,6 +60,16 @@ project {
                 gradle {
                     buildFile = "build.gradle.kts"
                     enabled = true
+                    name = "prebuild"
+                    id = "23df2280-1679-4eef-af4d-2d5b16f3941c"
+                    tasks = "app:clean"
+
+                    executionMode = BuildStep.ExecutionMode.ALWAYS
+                    gradleParams = "--stacktrace --no-build-cache"
+                }
+                gradle {
+                    buildFile = "build.gradle.kts"
+                    enabled = true
                     name = "DoesnExistBuild2"
 
                     id = "23df2280-1679-4e9f-af4d-2d5b16f3941c"
@@ -72,6 +82,7 @@ project {
                     }
                 }
                 gradle {
+                    enabled = true
                     name = "Build"
                     // buildFile = "build.gradle.kts"
                     // useGradleWrapper = true
