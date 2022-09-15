@@ -54,10 +54,6 @@ project {
 
 
             steps {
-                script {
-                    name = "Kill Gradle processes"
-                    scriptContent = "pkill -f '.*GradleDaemon.*'"
-                }
                 gradle {
                     // enabled = true
                     name = "Clean"
