@@ -57,7 +57,7 @@ project {
                 gradle {
                     buildFile = "build.gradle.kts"
                     enabled = true
-                    name = "DoesnExistBuild"
+                    name = "DoesnExistBuild2"
 
                     id = "23df2280-1679-4e9f-af4d-2d5b16f3941c"
                     tasks = "doesntExistTask"
