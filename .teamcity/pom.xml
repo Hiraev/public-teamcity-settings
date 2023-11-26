@@ -22,7 +22,8 @@
     </repository>
     <repository>
       <id>teamcity-server</id>
-      <url>http://192.168.1.190:8111/app/dsl-plugins-repository</url>
+      <!--   if you run server on localhost, otherwise use remote url of your server   -->
+      <url>http://localhost:8111/app/dsl-plugins-repository</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
