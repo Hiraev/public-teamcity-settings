@@ -70,7 +70,7 @@ project {
 
             steps {
                 script {
-                    scriptContent = "echo \"##teamcity[setParameter name='RandomValue' value='4']\""
+                    scriptContent = "echo \"##teamcity[setParameter name='statistics.RandomValue' value='4']\""
                 }
             }
         }
