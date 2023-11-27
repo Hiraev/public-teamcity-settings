@@ -47,7 +47,7 @@ project {
                 series = listOf(
                     CustomChart.Serie(
                         "Custom Parameter",
-                        key = CustomChart.SeriesKey("random_value")
+                        key = CustomChart.SeriesKey("RandomValue")
                     )
                 )
             }
@@ -59,7 +59,7 @@ project {
 
             steps {
                 script {
-                    scriptContent = "echo \"##teamcity[setParameter name='random_value' value='4']\""
+                    scriptContent = "echo \"##teamcity[setParameter name='RandomValue' value='4']\""
                 }
             }
         }
