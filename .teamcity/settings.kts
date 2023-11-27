@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.buildCache
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
@@ -43,6 +44,16 @@ project {
 
         features {
             projectCustomChart {
+                title = "Какой-то график"
+                series = listOf(
+                    CustomChart.Serie(
+                        "Custom Parameter",
+                        key = CustomChart.SeriesKey("RandomValue")
+                    )
+                )
+            }
+
+            buildTypeCustomChart {
                 title = "Какой-то график"
                 series = listOf(
                     CustomChart.Serie(
