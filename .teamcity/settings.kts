@@ -1,7 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
 
 /*
@@ -39,6 +38,31 @@ project {
     }
 
     subProject {
+        id("Just_build")
+        name = "Just buils"
+
+        features {
+            projectCustomChart {
+                title = "Какой-то график"
+                series = listOf(
+                    CustomChart.Serie(
+                        "Custom Parameter",
+                        key = CustomChart.SeriesKey("random_value")
+                    )
+                )
+            }
+        }
+
+        buildType {
+            steps {
+                script {
+                    scriptContent = "echo \"##teamcity[setParameter name='random_value' value='4']\""
+                }
+            }
+        }
+    }
+
+    subProject {
         id("TheGuardianNews_App")
         name = "TheGuardianNews App"
 
@@ -48,6 +72,7 @@ project {
             text("env.AAA", "fds")
             param("env.CCCCC", "true")
         }
+
         buildType {
             vcs {
                 root(TheGuardianNewsVcs)
