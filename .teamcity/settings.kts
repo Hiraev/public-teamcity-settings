@@ -54,6 +54,9 @@ project {
         }
 
         buildType {
+            id("Just_build_type")
+            name = "Just build type"
+
             steps {
                 script {
                     scriptContent = "echo \"##teamcity[setParameter name='random_value' value='4']\""
