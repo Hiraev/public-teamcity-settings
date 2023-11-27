@@ -43,21 +43,21 @@ project {
         name = "Just buils"
 
         features {
-            projectCustomChart {
-                title = "Какой-то график"
-                series = listOf(
-                    CustomChart.Serie(
-                        "Custom Parameter",
-                        key = CustomChart.SeriesKey("RandomValue")
-                    )
-                )
-            }
+//            projectCustomChart {
+//                title = "Какой-то график"
+//                series = listOf(
+//                    CustomChart.Serie(
+//                        "Custom Parameter",
+//                        key = CustomChart.SeriesKey("RandomValue")
+//                    )
+//                )
+//            }
 
             buildTypeCustomChart {
-                title = "Какой-то график"
+                title = "Random Chart"
                 series = listOf(
                     CustomChart.Serie(
-                        "Custom Parameter",
+                        "Random value",
                         key = CustomChart.SeriesKey("RandomValue")
                     )
                 )
@@ -70,7 +70,7 @@ project {
 
             steps {
                 script {
-                    scriptContent = "echo \"##teamcity[buildStatisticValue name='RandomValue' value='4']\""
+                    scriptContent = "echo \"##teamcity[buildStatisticValue key='RandomValue' value='4']\""
                 }
             }
         }
